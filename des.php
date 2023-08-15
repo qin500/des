@@ -3,9 +3,13 @@
 class Des
 {
 
-    protected $key = "";
+    //密钥
+    protected $key;
 
-    function __construct($key)
+    /*
+     * $key 默认密钥
+     */
+    function __construct($key="qin500hh")
     {
         $this->key = $key;
     }
@@ -65,7 +69,7 @@ class Des
 
 if (strtoupper($_SERVER['REQUEST_METHOD']) == "POST") {
     $text=$_POST['text'];
-    $des=new Des('abc');
+    $des=new Des;
     if($_POST['type'] === "encry"){
        $res= $des->encryption($text);
     }else{
