@@ -96,6 +96,11 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == "POST") {
             background: #f4cc48;
             color: #342a00;
             margin: 20px 0;
+            box-sizing: border-box;
+            width: 100%;
+            outline: none;
+            font-size: 18px;
+            resize: vertical;
         }
     </style>
 </head>
@@ -117,8 +122,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == "POST") {
         <input type="submit" value="解密">
     </fieldset>
 </form>
+<textarea id="res"></textarea>
 
-<div id="res"></div>
 
 <script>
     let form = document.forms;
@@ -146,7 +151,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) == "POST") {
             }).then(res=>{
                return res.text()
             }).then(r=>{
-                res_v.innerHTML=r
+                console.log(r)
+                res_v.textContent=r
             })
 
             e.preventDefault()
