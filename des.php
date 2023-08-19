@@ -62,6 +62,38 @@ class Des
         return $plaintext;
     }
 
+
+
+    
+
+    /**
+     * DES解密
+     * @param string $data 解密字符串
+     * @param string $key 解密KEY
+     * @return mixed
+     */
+    function decrypt($data, $key = 'p@ssw0rd')
+    {
+        return openssl_decrypt($data, 'des-ecb', $key);
+    }
+
+
+
+
+    /**
+     *
+     * @param string $data 加密字符串
+     * @param string $key 加密KEY
+     * @return string
+     */
+    function encrypt($data, $key = 'p@ssw0rd')
+    {
+        return openssl_encrypt($data, 'des-ecb', $key);
+    }
+
+
+
+
 }
 
 
